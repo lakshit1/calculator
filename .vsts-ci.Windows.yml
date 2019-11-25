@@ -25,12 +25,13 @@ jobs:
       branchToMerge: uno
       summaryFile: '$(Build.ArtifactStagingDirectory)/Canary.md'
       resultFile: '$(Build.ArtifactStagingDirectory)/result.json'
-      nugetUpdaterVersion: 2.0.2
+      nugetUpdaterVersion: 2.0.6
       packageAuthor: nventive
 
-  - task: GitVersion@4
+  - task: GitVersion@5
     inputs:
-      updateAssemblyInfo: false   
+      useConfigFile: true
+      configFilePath: GitVersion.yml
       
   - task: NuGetToolInstaller@0
     inputs:
